@@ -1,0 +1,32 @@
+{
+  "name": "factory-empire",
+  "version": "1.2.0",
+  "description": "Factory Empire - an idle factory game",
+  "main": "main.js",
+  "author": { "name": "Factory Empire", "email": "factory@example.com" },
+  "homepage": "https://example.com",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --publish never"
+  },
+  "devDependencies": {
+    "@capacitor/android": "^6.1.0",
+    "@capacitor/cli": "^6.1.0",
+    "@capacitor/core": "^6.1.0",
+    "electron": "^33.0.0",
+    "electron-builder": "^25.0.0"
+  },
+  "build": {
+    "appId": "com.factoryempire.game",
+    "productName": "Factory Empire",
+    "files": ["main.js", "index.html", "icon.png"],
+    "win": { "icon": "icon.png", "target": ["nsis", "portable"] },
+    "nsis": { "oneClick": false, "allowToChangeInstallationDirectory": true, "createDesktopShortcut": true, "artifactName": "FactoryEmpire-Setup.exe" },
+    "portable": { "artifactName": "FactoryEmpire-Portable.exe" },
+    "mac": { "icon": "icon.png", "category": "public.app-category.games", "target": ["dmg"] },
+    "dmg": { "artifactName": "FactoryEmpire-${arch}.dmg" },
+    "linux": { "icon": "icon.png", "category": "Game", "maintainer": "Factory Empire <factory@example.com>", "target": ["AppImage", "deb"] },
+    "appImage": { "artifactName": "FactoryEmpire.AppImage" },
+    "deb": { "artifactName": "FactoryEmpire.deb" }
+  }
+}
